@@ -4,6 +4,7 @@
 #include <iostream>
 #include "mainHackLoop.h"
 #include "setupHooksAndNops.h"
+#include "consoleAndInput.h"
 
 DWORD WINAPI HackThread(HMODULE hModule) {
     //Create Console
@@ -17,20 +18,11 @@ DWORD WINAPI HackThread(HMODULE hModule) {
     //toggle the hooks we want
     mainHackLoopTramp.ToggleTrampSBL();
 
-    std::cout << "Press NUMPAD0 for infAmmoDetour\n";
-    std::cout << "Press NUMPAD1 for infAmmoNOP\n";
-    std::cout << "Press NUMPAD2 for oneHitDetour\n";
-    // std::cout << "Press NUMPAD3 for oneHitTramp\n";
-    std::cout << "Press END to uninject\n";
+    PrintConsole();
 
     while (!bBreakHackThreadWhileLoop) {
 
     }
-
-    if (infAmmoDetour.bActive) infAmmoDetour.ToggleDetour();
-    if (infAmmoNOP.bActive) infAmmoNOP.ToggleNop();
-    if (oneHitDetour.bActive) oneHitDetour.ToggleDetour();
-    // if (oneHitTramp.bActive) oneHitTramp.ToggleTrampSBF();
 
     fclose(f);
     FreeConsole();

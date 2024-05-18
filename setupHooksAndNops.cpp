@@ -1,14 +1,11 @@
 #include "pch.h"
 #include "setupHooksAndNops.h"
 #include "mainHackLoop.h"
-#include "infAmmo.h"
 #include "oneHit.h"
 
 //declare all hooks and nops
 Hook mainHackLoopTramp;
-Hook infAmmoDetour;
-// Hook oneHitTramp;
-Hook oneHitDetour;
+Hook OneHitElimAndGodModeDetour;
 Nop infAmmoNOP;
 
 void SetupHooksAndNops() {
@@ -22,11 +19,6 @@ void SetupHooksAndNops() {
 	Hook mainHackLoopTrampTemp(mainHackLoopHookDst, (BYTE*)MainHackLoop, 5);
 	mainHackLoopTramp = mainHackLoopTrampTemp;
 
-	//infinite ammo detour
-	BYTE* infAmmoDetourDst = moduleBaseAssaultCube + 0x637E6;
-	Hook infAmmoDetourTemp(infAmmoDetourDst, (BYTE*)InfAmmo, 5);
-	infAmmoDetour = infAmmoDetourTemp;
-
 	//infinite ammo Nop
 	BYTE* infAmmoNopDst = moduleBaseAssaultCube + 0x637E9;
 	Nop infAmmoNopTemp(infAmmoNopDst, 2);
@@ -35,12 +27,5 @@ void SetupHooksAndNops() {
 	//one hit detour
 	BYTE* oneHitDetourDst = moduleBaseAssaultCube + 0x29D1F;
 	Hook oneHitDetourTemp(oneHitDetourDst, (BYTE*)oneHit, 5);
-	oneHitDetour = oneHitDetourTemp;
-
-	//one hit trmap
-	/*
-	BYTE* oneHitTrampDst = moduleBaseAssaultCube + 0x29D1F;
-	Hook oneHitTrampTemp(oneHitTrampDst, (BYTE*)oneHit, 5);
-	oneHitTramp = oneHitTrampTemp;
-	*/
+	OneHitElimAndGodModeDetour = oneHitDetourTemp;
 }

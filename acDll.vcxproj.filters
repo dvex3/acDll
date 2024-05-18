@@ -22,11 +22,11 @@
     <Filter Include="memory">
       <UniqueIdentifier>{6af69bdf-2ae5-4026-8c72-19da54f9756c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="infAmmo">
-      <UniqueIdentifier>{6ab20861-b82d-4aac-926e-60289f265172}</UniqueIdentifier>
-    </Filter>
     <Filter Include="oneHit">
       <UniqueIdentifier>{745c4755-a4ef-4067-aee8-417523026d64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="consoleAndInput">
+      <UniqueIdentifier>{5e142673-5a21-460e-a89a-3287bb6dcf81}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -45,11 +45,11 @@
     <ClInclude Include="memory.h">
       <Filter>memory</Filter>
     </ClInclude>
-    <ClInclude Include="infAmmo.h">
-      <Filter>infAmmo</Filter>
-    </ClInclude>
     <ClInclude Include="oneHit.h">
       <Filter>oneHit</Filter>
+    </ClInclude>
+    <ClInclude Include="consoleAndInput.h">
+      <Filter>consoleAndInput</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -68,11 +68,11 @@
     <ClCompile Include="memory.cpp">
       <Filter>memory</Filter>
     </ClCompile>
-    <ClCompile Include="infAmmo.cpp">
-      <Filter>infAmmo</Filter>
-    </ClCompile>
     <ClCompile Include="oneHit.cpp">
       <Filter>oneHit</Filter>
+    </ClCompile>
+    <ClCompile Include="consoleAndInput.cpp">
+      <Filter>consoleAndInput</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

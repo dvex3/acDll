@@ -16,6 +16,6 @@ void __declspec(naked)oneHit() {
 		jmp end
 
 		end:
-		jmp oneHitDetour.returnJumpDetour
+		jmp OneHitElimAndGodModeDetour.returnJumpDetour
 	}
 }

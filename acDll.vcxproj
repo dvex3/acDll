@@ -141,8 +141,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="consoleAndInput.h" />
     <ClInclude Include="framework.h" />
-    <ClInclude Include="infAmmo.h" />
     <ClInclude Include="mainHackLoop.h" />
     <ClInclude Include="memory.h" />
     <ClInclude Include="oneHit.h" />
@@ -150,8 +150,8 @@
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="consoleAndInput.cpp" />
     <ClCompile Include="dllmain.cpp" />
-    <ClCompile Include="infAmmo.cpp" />
     <ClCompile Include="memory.cpp" />
     <ClCompile Include="oneHit.cpp" />
     <ClCompile Include="pch.cpp">
