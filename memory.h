@@ -31,7 +31,7 @@ struct Hook {
 	void ToggleDetour();
 
 	//constructors
-	Hook(BYTE* hookPosition, BYTE* desireFunction, int lengthofHook);
+	Hook(BYTE* hookPosition, BYTE* desireFunction, int lengthOfHook);
 	Hook();
 };
 

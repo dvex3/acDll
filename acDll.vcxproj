@@ -143,15 +143,20 @@
   <ItemGroup>
     <ClInclude Include="consoleAndInput.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="globals.h" />
+    <ClInclude Include="harvest.h" />
     <ClInclude Include="mainHackLoop.h" />
     <ClInclude Include="memory.h" />
     <ClInclude Include="oneHit.h" />
     <ClInclude Include="setupHooksAndNops.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="structs.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="consoleAndInput.cpp" />
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="globals.cpp" />
+    <ClCompile Include="harvest.cpp" />
     <ClCompile Include="memory.cpp" />
     <ClCompile Include="oneHit.cpp" />
     <ClCompile Include="pch.cpp">
@@ -162,6 +167,7 @@
     </ClCompile>
     <ClCompile Include="setupHooksAndNops.cpp" />
     <ClCompile Include="mainHackLoop.cpp" />
+    <ClCompile Include="structs.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

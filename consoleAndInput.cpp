@@ -27,18 +27,33 @@ void PrintConsole() {
     std::cout << "Press NUMPAD1 for one hit eliminations and Godmode team\n";
     std::cout << "Press END to uninject\n";
     std::cout << "===========================================================\n";
-    std::cout << "Inf ammo: " << (infAmmoNOP.bActive) << "\n";
-    std::cout << "One hit elims and god mode: " << (OneHitElimAndGodModeDetour.bActive) << "\n";
+    std::cout << "Inf ammo: " << ((infAmmoNOP.bActive) ? "ON" : "OFF") << "\n";
+    std::cout << "One hit elims and god mode: " << ((OneHitElimAndGodModeDetour.bActive) ? "ON" : "OFF") << "\n";
 }
 
 void BreakHackLoop() {
+	//make sure everything is deactivated
     if (infAmmoNOP.bActive) infAmmoNOP.ToggleNop();
     if (OneHitElimAndGodModeDetour.bActive) OneHitElimAndGodModeDetour.ToggleDetour();
+	if (harvestDataTramp.bActive) harvestDataTramp.ToggleTrampSBF();
 
+	//toggle off main hack loop hook, then break the while loop inside the HackThread()
 	mainHackLoopTramp.ToggleTrampSBF();
 	bBreakHackThreadWhileLoop = true;
 }
 
 void ToggleConsole() {
+	static bool bActive = false;
+	static FILE* f;
+	bActive = !bActive;
 
+	if (bActive) {
+		AllocConsole();
+		freopen_s(&f, "CONOUT$", "w", stdout);
+	}
+
+	else {
+		fclose(f);
+		FreeConsole();
+	}
 }

@@ -2,5 +2,5 @@
 
 extern int myTeam;
 
-void __declspec()oneHit();
+void __declspec()OneHit();
 

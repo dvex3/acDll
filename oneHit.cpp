@@ -12,7 +12,7 @@
 
 int myTeam = 5;
 
-void __declspec(naked)oneHit() {
+void __declspec(naked)OneHit() {
 	//someone send help
 	__asm {
 		mov eax, edi

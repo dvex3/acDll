@@ -2,23 +2,23 @@
 #include "memory.h"
 
 //reach inside hook struct to access our hook constructor and define that function
-Hook::Hook(BYTE* hookPosition, BYTE* desireFunction, int lengthofHook) {
+Hook::Hook(BYTE* hookPosition, BYTE* desireFunction, int lengthOfHook) {
 	this->hookPosition = hookPosition;
 	this->desiredFunction = desireFunction;
 	if (lengthOfHook < 5)
 		this->lengthOfHook = 5;
 	else
-		this->lengthOfHook = lengthofHook;
+		this->lengthOfHook = lengthOfHook;
 
 	//copy stolen bytes
-	memcpy(stolenBytes, hookPosition, lengthofHook);
+	memcpy(stolenBytes, hookPosition, lengthOfHook);
 
 	//allocate room for our trampoline
 	trampoline = (BYTE*)VirtualAlloc(nullptr, 30, MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE);
 
 	//setup tramp jumps
 	hookToTrampJump = (DWORD)(trampoline - hookPosition) - 5;
-	returnJump = (DWORD)(hookPosition + lengthOfHook) - (DWORD)(trampoline + lengthofHook + sizeof(preserveStack) + 5 + sizeof(releaseStack)) - 5;
+	returnJump = (DWORD)(hookPosition + lengthOfHook) - (DWORD)(trampoline + lengthOfHook + sizeof(preserveStack) + 5 + sizeof(releaseStack)) - 5;
 
 	//setup detour jumps
 	hookToDetourJump = (DWORD)(desireFunction - hookPosition) - 5;

@@ -8,15 +8,14 @@
 
 DWORD WINAPI HackThread(HMODULE hModule) {
     //Create Console
-    FILE* f;
-    AllocConsole();
-    freopen_s(&f, "CONOUT$", "w", stdout);
+    ToggleConsole();
 
     //setup our hooks and nops
     SetupHooksAndNops();
 
     //toggle the hooks we want
     mainHackLoopTramp.ToggleTrampSBF();
+    harvestDataTramp.ToggleTrampSBF();
 
     PrintConsole();
 
@@ -24,8 +23,10 @@ DWORD WINAPI HackThread(HMODULE hModule) {
 
     }
 
-    fclose(f);
-    FreeConsole();
+    //release console
+    ToggleConsole();
+
+    //unload library, close thread safely
     FreeLibraryAndExitThread(hModule, 0);
     return 0;
 }
