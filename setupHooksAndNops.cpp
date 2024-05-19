@@ -15,7 +15,7 @@ void SetupHooksAndNops() {
 
 	//make temporary hooks that will feed  their information into the blank declarations of our global hooks
 	//main hack loop hook
-	BYTE* mainHackLoopHookDst = moduleBaseOpenGl + 0x47ADE;
+	BYTE* mainHackLoopHookDst = moduleBaseOpenGl + 0x4797E;
 	Hook mainHackLoopTrampTemp(mainHackLoopHookDst, (BYTE*)MainHackLoop, 5);
 	mainHackLoopTramp = mainHackLoopTrampTemp;
 

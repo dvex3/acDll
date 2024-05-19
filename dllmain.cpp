@@ -16,7 +16,7 @@ DWORD WINAPI HackThread(HMODULE hModule) {
     SetupHooksAndNops();
 
     //toggle the hooks we want
-    mainHackLoopTramp.ToggleTrampSBL();
+    mainHackLoopTramp.ToggleTrampSBF();
 
     PrintConsole();
 
