@@ -22,7 +22,7 @@ void HarvestData() {
 
 	//is everyone checked?
 	for (int i = 0; i < gNumberOfPlayers; i++) {
-		if (entity[i].bChecked)
+		if (!entity[i].bChecked)
 			return;
 	}
 
