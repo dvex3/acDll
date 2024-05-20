@@ -42,9 +42,9 @@ void MoveDataIntoEnt(BYTE* playerBase, int* playerNumber) {
 	entity[*playerNumber].playerNumber = (int*)(playerBase + offsets.playerNumber);
 	entity[*playerNumber].team = (int*)(playerBase + offsets.team);
 	entity[*playerNumber].health = (int*)(playerBase + offsets.health);
-	entity[*playerNumber].xCoord = (float*)(playerBase + offsets.xCoord);
-	entity[*playerNumber].yCoord = (float*)(playerBase + offsets.yCoord);
-	entity[*playerNumber].zCoord = (float*)(playerBase + offsets.zCoord);
+	entity[*playerNumber].xHeadCoord = (float*)(playerBase + offsets.xHeadCoord);
+	entity[*playerNumber].yHeadCoord = (float*)(playerBase + offsets.yHeadCoord);
+	entity[*playerNumber].zHeadCoord = (float*)(playerBase + offsets.zHeadCoord);
 	entity[*playerNumber].name = (char*)(playerBase + offsets.name);
 	entity[*playerNumber].bChecked = true;
 

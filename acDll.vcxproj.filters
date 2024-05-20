@@ -37,6 +37,9 @@
     <Filter Include="structs">
       <UniqueIdentifier>{37a2b060-4a90-4750-8861-ef863bde0bdc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="aimbot">
+      <UniqueIdentifier>{c16c3c09-cb34-4d92-a272-079911238f85}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -69,6 +72,9 @@
     <ClInclude Include="structs.h">
       <Filter>structs</Filter>
     </ClInclude>
+    <ClInclude Include="aimbot.h">
+      <Filter>aimbot</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -100,6 +106,9 @@
     </ClCompile>
     <ClCompile Include="structs.cpp">
       <Filter>structs</Filter>
+    </ClCompile>
+    <ClCompile Include="aimbot.cpp">
+      <Filter>aimbot</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

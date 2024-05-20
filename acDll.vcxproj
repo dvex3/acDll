@@ -141,6 +141,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="aimbot.h" />
     <ClInclude Include="consoleAndInput.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="globals.h" />
@@ -153,6 +154,7 @@
     <ClInclude Include="structs.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="aimbot.cpp" />
     <ClCompile Include="consoleAndInput.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="globals.cpp" />

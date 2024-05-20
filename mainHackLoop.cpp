@@ -4,6 +4,8 @@
 #include "consoleAndInput.h"
 #include "globals.h"
 #include "structs.h"
+#include "harvest.h"
+#include "aimbot.h"
 
 #define numberOfPlayers (gModuleBaseAssaultCube + 0x10F500)
 
@@ -13,31 +15,15 @@ void MainHackLoop() {
 	int currentNumberOfPlayers = *(int*)(numberOfPlayers);
 	if (gNumberOfPlayers != currentNumberOfPlayers) {
 		gNumberOfPlayers = currentNumberOfPlayers;
-		if (!harvestDataTramp.bActive)
-			harvestDataTramp.ToggleTrampSBF();
+		if (!harvestDataTramp.bActive) harvestDataTramp.ToggleTrampSBF();
 	}
 
 	//is our harvesting hook finished?
 	if (harvestDataTramp.bActive) return;
 
-	//harvesting is finished, we can now dereference without crashing the game and use all our functionality
-	/*
-	*myself.arAmmo = 999;
-	for (int i = 0; i < gNumberOfPlayers; i++) {
-		if (*entity[i].team != *myself.team)
-			*entity[i].health = 1;
-	}
-	*/
-	
-	//hitbox only, viewmodel not included
-	for (int i = 1; i < gNumberOfPlayers; i++) {
-		if (*(entity[i].team) != *(entity[0].team)) {
-			*(entity[i].health) = 0x1;
-			*(entity[i].xCoord) = *(entity[0].xCoord) + 0x5;
-			*(entity[i].yCoord) = *(entity[0].yCoord) + 0x5;
-			*(entity[i].zCoord) = *(entity[0].zCoord);
-		}
-	}
+	UpdateEntInfo();
+
+	if (bAimbotStatus) Aimbot(ClosestEnemy());
 
 	GetInput();
 }
