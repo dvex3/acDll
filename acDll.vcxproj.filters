@@ -40,6 +40,9 @@
     <Filter Include="aimbot">
       <UniqueIdentifier>{c16c3c09-cb34-4d92-a272-079911238f85}</UniqueIdentifier>
     </Filter>
+    <Filter Include="esp">
+      <UniqueIdentifier>{8158438f-5599-473d-b11e-827d8c6980ae}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -75,6 +78,9 @@
     <ClInclude Include="aimbot.h">
       <Filter>aimbot</Filter>
     </ClInclude>
+    <ClInclude Include="esp.h">
+      <Filter>esp</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -109,6 +115,9 @@
     </ClCompile>
     <ClCompile Include="aimbot.cpp">
       <Filter>aimbot</Filter>
+    </ClCompile>
+    <ClCompile Include="esp.cpp">
+      <Filter>esp</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

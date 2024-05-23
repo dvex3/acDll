@@ -6,6 +6,7 @@
 #include "structs.h"
 #include "harvest.h"
 #include "aimbot.h"
+#include "esp.h"
 
 #define numberOfPlayers (gModuleBaseAssaultCube + 0x10F500)
 
@@ -24,6 +25,8 @@ void MainHackLoop() {
 	UpdateEntInfo();
 
 	if (bAimbotStatus) Aimbot(ClosestEnemy());
+
+	DrawEverything();
 
 	GetInput();
 }

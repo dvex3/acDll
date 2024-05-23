@@ -3,6 +3,7 @@
 #include <iostream>
 #include "setupHooksAndNops.h"
 #include "aimbot.h"
+#include "esp.h"
 
 bool bBreakHackThreadWhileLoop = false;
 
@@ -25,6 +26,11 @@ void GetInput() {
 		bAimbotStatus = !bAimbotStatus;
 		PrintConsole();
 	}
+
+	if (GetAsyncKeyState(VK_NUMPAD3) & 1) {
+		bEspStatus = !bEspStatus;
+		PrintConsole();
+	}
 }
 
 void PrintConsole() {
@@ -32,11 +38,13 @@ void PrintConsole() {
     std::cout << "Press NUMPAD0 toa activate infinite ammo\n";
     std::cout << "Press NUMPAD1 to activate one hit eliminations and Godmode team\n";
 	std::cout << "Press NUMPAD2 to activate aimbot\n";
+	std::cout << "Press NUMPAD3 to activate ESP\n";
     std::cout << "Press END to uninject\n";
     std::cout << "===========================================================\n";
     std::cout << "Inf ammo: " << ((infAmmoNOP.bActive) ? "ON" : "OFF") << "\n";
     std::cout << "One hit elims and god mode: " << ((OneHitElimAndGodModeDetour.bActive) ? "ON" : "OFF") << "\n";
 	std::cout << "Aimbot: " << ((bAimbotStatus) ? "ON" : "OFF") << "\n";
+	std::cout << "ESP: " << ((bEspStatus) ? "ON" : "OFF") << "\n";
 }
 
 void BreakHackLoop() {
@@ -45,6 +53,7 @@ void BreakHackLoop() {
     if (OneHitElimAndGodModeDetour.bActive) OneHitElimAndGodModeDetour.ToggleDetour();
 	if (harvestDataTramp.bActive) harvestDataTramp.ToggleTrampSBF();
 	if (bAimbotStatus) bAimbotStatus = false;
+	if (bEspStatus) bEspStatus = false;
 
 	//toggle off main hack loop hook, then break the while loop inside the HackThread()
 	mainHackLoopTramp.ToggleTrampSBF();

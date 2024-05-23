@@ -143,6 +143,7 @@
   <ItemGroup>
     <ClInclude Include="aimbot.h" />
     <ClInclude Include="consoleAndInput.h" />
+    <ClInclude Include="esp.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="globals.h" />
     <ClInclude Include="harvest.h" />
@@ -157,6 +158,7 @@
     <ClCompile Include="aimbot.cpp" />
     <ClCompile Include="consoleAndInput.cpp" />
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="esp.cpp" />
     <ClCompile Include="globals.cpp" />
     <ClCompile Include="harvest.cpp" />
     <ClCompile Include="memory.cpp" />

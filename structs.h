@@ -1,6 +1,8 @@
 #pragma once
+#pragma comment(lib, "OpenGL32.lib")
 #include <Windows.h>
 #include <cstdint>
+#include <gl/GL.h>
 
 struct Entity {
 	//pointers gotten from game
@@ -20,10 +22,13 @@ struct Entity {
 	//DLL only vars, used for checks and aimbot/ESP math
 	bool bChecked = false;
 	bool bTargetable = false;
+	bool bVisible = false;
 	float relativeX = NULL;
 	float relativeY = NULL;
 	float relativeZ = NULL;
 	float distanceFromMe = 99999.0f;
+	float screenX = NULL;
+	float screenY = NULL;
 
 	//just for me
 	float* yaw = nullptr;
@@ -73,6 +78,19 @@ public:
 	char pad_0235[247]; //0x0235
 	int32_t team; //0x032C
 }; //Size: 0x0330
+
+struct Vector4 {
+	float x = NULL;
+	float y = NULL;
+	float z = NULL;
+	float w = NULL;
+};
+
+struct Color {
+	const GLubyte red[3] = { 255, 0, 0 };
+	const GLubyte green[3] = { 0, 255, 0 };
+};
+extern Color color;
 
 extern Entity entity[32];
 extern Entity myself;
