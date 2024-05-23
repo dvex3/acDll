@@ -19,6 +19,7 @@ struct Entity {
 
 	//DLL only vars, used for checks and aimbot/ESP math
 	bool bChecked = false;
+	bool bTargetable = false;
 	float relativeX = NULL;
 	float relativeY = NULL;
 	float relativeZ = NULL;
